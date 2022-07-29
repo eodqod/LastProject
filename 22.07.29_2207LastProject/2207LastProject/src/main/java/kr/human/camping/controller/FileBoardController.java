@@ -1,13 +1,9 @@
 package kr.human.camping.controller;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.human.camping.service.FileBoardService;
+import kr.human.camping.service.FileBoardServiceImpl;
 import kr.human.camping.vo.CommVO;
 import kr.human.camping.vo.FileBoardVO;
 import kr.human.camping.vo.PagingVO;
@@ -26,10 +23,10 @@ public class FileBoardController {
 	private FileBoardService fileBoardService;
 	
 	// 목록보기
-	@RequestMapping(value = "/list")
+	@RequestMapping("/list")
 	public String selectList(
 			@RequestParam(required = false, defaultValue = "1") int p,
-			@RequestParam(required = false, defaultValue = "10") int s,
+			@RequestParam(required = false, defaultValue = "3") int s,
 			@RequestParam(required = false, defaultValue = "10") int b,
 			Model model 
 			){
@@ -41,6 +38,14 @@ public class FileBoardController {
 		model.addAttribute("br", "<br>");
 		model.addAttribute("newLine", "\n");
 		return "list";
+	}
+	
+	// 내용보기
+	@RequestMapping("/view")
+	public String selectBiIdx(@RequestParam("idx") int idx, Model model) {
+		FileBoardVO vo = fileBoardService.selectByIdx(idx, false);
+		model.addAttribute("vo", vo);
+		return "Notice/view";
 	}
 	
 	// 저장/수정/삭제

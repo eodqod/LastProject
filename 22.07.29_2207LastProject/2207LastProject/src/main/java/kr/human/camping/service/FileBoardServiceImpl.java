@@ -41,8 +41,7 @@ public class FileBoardServiceImpl  implements FileBoardService{
 	public FileBoardVO selectByIdx(int idx, boolean isClick) {
 		FileBoardVO fileBoardVO= null;
 		//------------------------------------------------------------
-		SqlSession sqlSession = null;
-		FileBoardDAO fileBoardDAO = null;
+
 		try {
 			//--------------------------------------------------------------------
 			// 1. 해당 글번호의 글을 가져온다.

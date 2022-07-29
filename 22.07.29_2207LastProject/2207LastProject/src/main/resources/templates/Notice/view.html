@@ -16,11 +16,11 @@
 	<!-- 사용자 정의 자바스크립트 함수를 추가한다 -->
 	<script type="text/javascript" src="js/commons.js"></script>
 	<style type="text/css">
-		table { width: 1000px; margin: auto; padding: 5px;}
-		th {padding: 5px; border: 1px solid gray; background-color: black; color: white; text-align: center;}
-		td {padding: 5px; border: 1px solid gray; text-align: center;}
+		table { width: 800px; margin: auto; padding: 5px;}
+		th {padding: 5px; border: 1px solid gray; background-color: silver;text-align: center;}
+		td {padding: 5px; border: 1px solid gray; }
 		.title {border: none; font-size: 20pt; text-align: center;}
-		.sub_title {border: none; text-align: right;}
+		.item { width: 100px; background-color: black; color: white; text-align: center;}
 	</style>
 	<script type="text/javascript">
 		$(function(){
@@ -31,47 +31,28 @@
 <body>
 	<table>
 		<tr>
-			<td colspan="4" class="title">
-				<b>공 지 사 항</b>
-			</td>
+			<td colspan="4" class="title"><b>공지사항 내용보기</b></td>
 		</tr>
 		<tr>
-			<td th:text="${pv.pageInfo}" colspan="4" class="sub_title"/>
+			<td class="item" >작성일</td>
+			<td th:text="${#dates.format(vo.regDate, 'yyyy-MM-dd(E요일) hh:mm:ss')}" colspan="3"/>
 		</tr>
 		<tr>
-			<th>No</th>
-			<th width="55%">제목</th>
-			<th>작성일</th>
-			<th>조회수</th>
+			<td class="item">제목</td>
+			<td th:text="${vo.subject}" colspan="3"></td>
 		</tr>
-		<th:block th:unless="${pv.totalCount}">
-			<tr>
-				<td colspan="5" style="text-align: center;">
-				등록된 글이 없습니다.
-				</td>
-			</tr>
-		</th:block>
-		
-		<th:block th:if="${pv.totalCount}">
-			<th:block th:each="vo, status : ${pv.list}" th:with="no=${pv.totalCount - (pv.currentPage-1) * pv.pageSize - status.index}">
-				<tr>
-					<td th:text="${no}"/>
-					<td style="text-align: left;">
-						<a th:text="${vo.subject}" th:href="@{view(idx = ${vo.idx})}"></a>
-					</td>
-					<td th:text="${#dates.format(vo.regDate, 'yyyy-MM-dd')}"/>
-					<td th:text="${vo.clickCount}"/>
-				</tr>
-			</th:block>
-		</th:block>
-		
 		<tr>
-			<td th:utext="${pv.pageList}" colspan="4" class="sub_title" style="text-align: center;"/>
-		</tr>						
+			<td class="item" valign="top">내용</td>
+			<td th:text="${vo.content}" colspan="3"></td>
+		</tr>
 		<tr>
-			<td class="sub_title" colspan="6">
+			<td colspan="4" style="border: none;text-align: right;">
 				<button class="btn btn-dark" 
-				 th:onclick="">새글쓰기</button>
+				onclick='sendPost("update.jsp",{"p":${p},"s":${s },"b":${b },"idx":${idx },"isClick":true})'>수정</button>	
+				<button class="btn btn-dark" 
+				onclick='sendPost("delete.jsp",{"p":${p},"s":${s },"b":${b },"idx":${idx },"isClick":true})'>삭제</button>
+				<button class="btn btn-dark" 
+				onclick='sendPost("index.jsp",{"p":${p},"s":${s },"b":${b }})'>목록</button>
 			</td>
 		</tr>
 	</table>
