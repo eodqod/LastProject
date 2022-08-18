@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+{"resources":{"src/main/resources/templates/OracleDB.sql":{"sql-editor-data-source-id":"oracle_thin-181fa3be3cd-6e57b475960c4230"}}}
+=======
+{"resources":{"src/main/resources/templates/OracleDB.sql":{"sql-editor-data-source-id":"oracle_thin-181702d528f-3fbd5247b20735ab"}}}
+>>>>>>> seongseok2
+=======
+<<<<<<< HEAD
+{"resources":{"src/main/resources/templates/OracleDB.sql":{"default-schema":"JSPUSER","sql-editor-data-source-id":"oracle_thin-180ef7c9236-772f93d376ec6c4c","default-datasource":"oracle_thin-180ef7c9236-772f93d376ec6c4c"},"src/main/webapp/OracleDB.sql":{"default-schema":"JSPUSER","sql-editor-data-source-id":"oracle_thin-1821496516a-51285224b41a9272","default-datasource":"oracle_thin-1821496516a-51285224b41a9272"},"src/main/webapp/WEB-INF/OracleDB.sql":{"default-schema":"JSPUSER","sql-editor-data-source-id":"oracle_thin-1821496516a-51285224b41a9272","default-datasource":"oracle_thin-1821496516a-51285224b41a9272"}}}
+=======
+{"resources":{"src/main/resources/templates/OracleDB.sql":{"default-schema":"JSPUSER","sql-editor-data-source-id":"oracle_thin-1821496516a-51285224b41a9272","default-datasource":"oracle_thin-1821496516a-51285224b41a9272"},"src/main/webapp/OracleDB.sql":{"default-schema":"JSPUSER","sql-editor-data-source-id":"oracle_thin-1821496516a-51285224b41a9272","default-datasource":"oracle_thin-1821496516a-51285224b41a9272"},"src/main/webapp/WEB-INF/OracleDB.sql":{"default-schema":"JSPUSER","sql-editor-data-source-id":"oracle_thin-1821496516a-51285224b41a9272","default-datasource":"oracle_thin-1821496516a-51285224b41a9272"}}}
+>>>>>>> hoegyeong99
+=======
+{"resources":{"src/main/resources/templates/OracleDB.sql":{"default-schema":"JSPUSER","sql-editor-data-source-id":"oracle_thin-181702d528f-3fbd5247b20735ab","default-datasource":"oracle_thin-181702d528f-3fbd5247b20735ab"},"src/main/webapp/OracleDB.sql":{"default-schema":"JSPUSER","sql-editor-data-source-id":"oracle_thin-1821496516a-51285224b41a9272","default-datasource":"oracle_thin-1821496516a-51285224b41a9272"},"src/main/webapp/WEB-INF/OracleDB.sql":{"default-schema":"JSPUSER","sql-editor-data-source-id":"oracle_thin-1821496516a-51285224b41a9272","default-datasource":"oracle_thin-1821496516a-51285224b41a9272"}}}
+>>>>>>> seongseok
+>>>>>>> hoegyeung99
