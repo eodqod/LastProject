@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>업체 등록</title>
+	<!-- axicon 사용하기 -->
+	<link rel="stylesheet" type="text/css" href="axicon/axicon.min.css" />
+	<!-- 부트스트랩을 사용하기 위한 준비 시작 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- 부트스트랩을 사용하기 위한 준비 끝 -->
+	<!-- 다음 우편번호 API -->
+<!-- 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
+	<!-- 사용자 정의 자바스크립트 함수를 추가한다 -->
+	<script type="text/javascript" src="js/commons.js"></script>
+	<style type="text/css">
+		.title {color:white; font-size: 18pt; text-align: center; padding: 10px; font-weight: bold;}
+		#body-wrapper{padding: 8px 16px; background: linear-gradient(to bottom, rgba(26, 111, 118, 1) 50%, rgba(40, 30, 101, 1) 100%, rgba(125, 185,232,1) 100%)}
+		.container{ background-color: black; margin-top:70%;}
+		.col-sm-2{color: white;}
+	</style>
+	<script type="text/javascript">
+// 		function formCheck(){
+// 			var obj = $("#subject");
+// 			if(obj.val()==null || obj.val().trim().length==0){
+// 				alert("제목은 반드시 입력해야 합니다.");
+// 				obj.val("");
+// 				obj.focus();
+// 				return false;
+// 			}
+// 			var obj = $("#content");
+// 			if(obj.val()==null || obj.val().trim().length==0){
+// 				alert("내용은 반드시 입력해야 합니다.");
+// 				obj.val("");
+// 				obj.focus();
+// 				return false;
+// 			}
+// 		}
+	</script>
+</head>
+<body>
+	<div class="clo-bg">
+		<div class="container" style="border: 1px solid gray;padding: 15px;margin-top: 30px;border-radius: 30px;">
+			<form action="CompanyUpdateOk"  method="post" > 
+				<!-- 여기에서 몇개를 숨겨서 가지고 가자 -->
+				<input type="hidden" name="p" th:value="${p }" />
+				<input type="hidden" name="s" th:value="${s }" />
+				<input type="hidden" name="b" th:value="${b }" />
+				<input type="hidden" name="mode" th:value="1" />
+				<div class="title" >업체 등록</div>
+				<div class="mb-3 row">
+				  	<label for="name" class="col-sm-2 col-form-label">업체명</label>
+				  	<div class="col-sm-2">
+						<input type="text" class="form-control" id="name" name="name" placeholder="업체명입력" required="required">
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="postcode" class="col-sm-2 col-form-label">우편번호</label>
+					<div class="col-sm-2">
+						<input class="form-control" type="text" name="postcode" id="postcode" required="required">
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="add1" class="col-sm-2 col-form-label">지번주소</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="add1" id="add1" placeholder="지번주소" required="required">
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="add2" class="col-sm-2 col-form-label">도로명주소</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="add2" id="add2" placeholder="도로명주소" required="required">
+					</div>
+				</div>
+				<div class="mb-3 row">
+				  	<label for="eco" class="col-sm-2 col-form-label">자연환경</label>
+				  	<div class="col-sm-2">
+						<input type="text" class="form-control" id="eco" name="eco" placeholder="자연환경" required="required">
+					</div>
+					<div class="col-sm-3 col-form-label" id="msg"></div>
+				  	<label for="areacode" class="col-sm-2 col-form-label">지역코드</label>
+				  	<div class="col-sm-2">
+						<input type="text" class="form-control" id="areacode" name="areacode" placeholder="지역코드" required="required">
+					</div>
+				</div>
+				<div class="mb-3 row">
+				  	<label for="roomtype" class="col-sm-2 col-form-label">룸타입</label>
+				  	<div class="col-sm-2">
+						<input type="text" class="form-control" id="roomtype" name="roomtype" placeholder="룸타입" required="required">
+					</div>
+					<div class="col-sm-3 col-form-label" id="msg"></div>
+				  	<label for="detailcode" class="col-sm-2 col-form-label">상세지역코드</label>
+				  	<div class="col-sm-2">
+						<input type="text" class="form-control" id="detailcode" name="detailcode" placeholder="상세지역코드" required="required">
+					</div>
+				</div>
+				<div class="mb-3 row">
+				  	<label for="theme" class="col-sm-2 col-form-label">테마</label>
+				  	<div class="col-sm-2">
+						<input type="text" class="form-control" id="theme" name="theme" placeholder="테마" required="required">
+					</div>
+				</div>
+				<div class="mb-3 row">
+				  	<label for="latitude" class="col-sm-2 col-form-label">위도</label>
+				  	<div class="col-sm-2">
+						<input type="text" class="form-control" id="latitude" name="latitude" placeholder="위도" required="required">
+					</div>
+					<div class="col-sm-3 col-form-label" id="msg"></div>
+				  	<label for="logitude" class="col-sm-2 col-form-label">경도</label>
+				  	<div class="col-sm-2">
+						<input type="text" class="form-control" id="logitude" name="logitude" placeholder="경도" required="required">
+					</div>
+				</div>
+
+				<div class="mb-3 row">
+					<div class="col-sm-12" style="text-align: right;">
+					<input type="submit" class="btn btn-outline-light" 
+					th:onclick="'location.href=\''+ @{CompanyUpdateOk} + '\''" value="저장">
+					<input type="button" class="btn btn-outline-light" 
+					th:onclick="'location.href=\''+ @{CompanyList} + '\''" value="목록으로">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
